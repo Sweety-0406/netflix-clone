@@ -1,7 +1,7 @@
 import useBillboard from "@/hooks/useBillboards";
 import React, { useCallback } from "react";
 import { BsInfoCircle } from "react-icons/bs";
-import PlayButton from "./PlatButton";
+import PlayButton from "./PlayButton";
 import useInfoModal from "@/hooks/useInfoModal";
 
 const Billboard=()=>{
