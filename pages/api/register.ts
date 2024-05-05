@@ -3,11 +3,6 @@ import {NextApiRequest,NextApiResponse} from 'next';
 import prismadb from '@/lib/prismadb';
 
 export default async function handler(req:NextApiRequest,res:NextApiResponse) {
-   
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
     if(req.method !== 'POST'){
         return res.status(405).end()
     }
