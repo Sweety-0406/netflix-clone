@@ -1,16 +1,13 @@
 import {NextApiRequest,NextApiResponse} from 'next';
-import { update, without } from 'lodash';
+import {  without } from 'lodash';
 import prismadb from '@/lib/prismadb';
 import serverAuth from '@/lib/serverAuth';
 
 export default async function handler(req:NextApiRequest,res:NextApiResponse) {
-    // if(req.method !=='POST' && req.method !== 'DELETE'){
-    //     return res.status(405).end();
-    // }
     try {
         if(req.method === 'POST'){
 
-            const {currentUser}=await serverAuth(req);
+            const {currentUser}=await serverAuth(req,res);
             const {movieId}=req.body;
             const existingMovies=await prismadb.movie.findUnique({
                 where:{
@@ -35,7 +32,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse) {
         }
 
         if(req.method === 'DELETE'){
-            const {currentUser}=await serverAuth(req);
+            const {currentUser}=await serverAuth(req,res);
             const {movieId}=req.body;
             const existingMovies=await prismadb.movie.findUnique({
                 where:{
