@@ -5,6 +5,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compare } from 'bcrypt';
 import prismadb from '@/lib/prismadb';
+import { NextApiRequest, NextApiResponse } from "next";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -64,4 +65,8 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET
 };
 
-export default NextAuth(authOptions);
+// export default NextAuth(authOptions);
+
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+  return await NextAuth(req, res, authOptions);
+}
