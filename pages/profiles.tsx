@@ -43,7 +43,7 @@ const Profiles=()=>{
                             group-hover:border-white
                             overflow-hidden
                             "
-                            >7
+                            >
                               <img src="/images/blue_icon.jpg"  alt="profile" />
                             </div>
                             <div
