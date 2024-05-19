@@ -33,12 +33,12 @@ const Auth=()=>{
 
     const register=useCallback(async ()=>{
       try {
-         await axios.post('/api/register',{
+        await axios.post('/api/register',{
           email,
           name,
           password
         });
-        login();
+        // login();
       } catch (error) {
          console.log(error)
       }

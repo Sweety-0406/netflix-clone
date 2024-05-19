@@ -8,21 +8,21 @@ import useFavourite from "@/hooks/useFavourites";
 import InfoModal from "@/components/InfoModal";
 import useInfoModal from "@/hooks/useInfoModal";
 
- export async function getServerSideProps(context:NextPageContext){
-   const session=await getSession(context);
+export async function getServerSideProps(context:NextPageContext){
+  const session=await getSession(context);
 
-   if(!session){
-     return {
-      redirect:{
-        destination:'/auth',
-        permanent:false
-      }
-     }
-   }
-   return {
-    props:{}
-   }
- }
+  if(!session){
+    return {
+    redirect:{
+      destination:'/auth',
+      permanent:false
+    }
+    }
+  }
+  return {
+  props:{}
+  }
+}
 
 export default function Home() {
   const {data:movies=[]}=useMovieList()
