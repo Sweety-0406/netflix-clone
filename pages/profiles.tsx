@@ -42,6 +42,7 @@ const Profiles=()=>{
                             group-hover:cursor pointer
                             group-hover:border-white
                             overflow-hidden
+                            cursor-pointer
                             "
                             >
                               <img src="/images/blue_icon.jpg"  alt="profile" />

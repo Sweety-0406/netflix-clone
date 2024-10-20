@@ -69,10 +69,5 @@ export const authOptions: AuthOptions = {
 // export default NextAuth(authOptions);
 
 export default async function auth(req: NextApiRequest, res: NextApiResponse) {
-  console.log('Environment Variables:', {
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-    DATABASE_URL: process.env.DATABASE_URL,
-  });
   return await NextAuth(req, res, authOptions);
 }
