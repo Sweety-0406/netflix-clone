@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import {FcGoogle} from 'react-icons/fc'; //npm install react-icons
 import {FaGithub} from 'react-icons/fa'
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const Auth=()=>{
     const[email,setEmail]=useState('')
@@ -25,11 +26,12 @@ const Auth=()=>{
           email,
           password,
           redirect:false,
-          // callbackUrl:'/profiles'
+          callbackUrl:'/profiles'
         });
         router.push('/profiles')
         
       } catch (error) {
+        toast.error("Something went wrong.")
         console.log(error);
       }
     },[email,password])
@@ -44,6 +46,7 @@ const Auth=()=>{
         login();
       } catch (error) {
          console.log(error)
+         toast.error("Email already exists")
       }
     },[email,password,name,login]);
 
